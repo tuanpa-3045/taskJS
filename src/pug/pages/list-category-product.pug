@@ -30,6 +30,5 @@ block main
       .col-12.col-sm-12.col-md-12.col-lg-9.order-1.order-lg-2.list-product
         .tab-content
           +navAndTaps({tabs: navProducts, content: navProducts, id: "list-category", isListCategories: true})
-
-
-
+block script
+  script(type="module" src="./js/getProducts.js")
