@@ -1,0 +1,118 @@
+.banner {
+  img {
+    width: 100%;
+  }
+}
+
+.list-category {
+  .main-heading {
+    @include font($fs: $fs-sizable, $textTrans: uppercase);
+    margin-bottom: 2rem;
+    &::after {
+      background-image: url("/assets/images/v-title.png");
+      top: 2rem;
+    }
+  }
+  .sidebar {
+    &__item {
+      @include font($fs: $fs-light);
+      @include mg($y: 0.5rem);
+      &:hover {
+        cursor: pointer;
+        color: $orange;
+        list-style-type: disc;
+        margin-left: 1rem;
+      }
+    }
+  }
+  .text-compare {
+    @include font($fs: $fs-light);
+  }
+  .tag__list {
+    @include flex($wrap: wrap);
+    margin-bottom: 2rem;
+  }
+
+  .tag__item {
+    @include pd($x: 0.8rem, $y: 0.5rem);
+    @include font($fs: $fs-light, $color: $p-gray);
+    border: 1px solid rgba($p-gray, 0.8);
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.list-product {
+  margin-top: 3rem;
+  .tab-content {
+    img {
+      width: 100%;
+    }
+
+    &__product-right {
+      .product__title {
+        @include font($fs: $fs-large, $textTrans: uppercase);
+        @include respond-to(desktop-and-down) {
+          @include font($fs: $fs-sizable, $textTrans: uppercase);
+        }
+      }
+
+      .main-price {
+        text-align: left;
+      }
+      .tag-sale,
+      .tag-new,
+      .tag-hot {
+        width: 50%;
+      }
+
+      .product__image {
+        @include mg($x: 0);
+        // width: 100%;
+
+        img {
+          width: 50%;
+
+          //   @include respond-to(desktop-and-down) {
+          //     width: 100%;
+          //   }
+        }
+
+        &:hover {
+          color: $p-gray;
+        }
+
+        .intro {
+          @include font($fs: $fs-light, $color: $p-gray);
+          @include mg($y: 1.2rem);
+          line-height: 1.5;
+        }
+        .product__info {
+          @include respond-to(desktop-and-down) {
+            display: none;
+          }
+        }
+      }
+      .product__content {
+        @include flex($direction: column);
+        margin-left: -10%;
+      }
+    }
+
+    .tabs-and-pagination {
+      @include flex($justify: space-between, $align: center);
+      width: 100%;
+      border: 1px solid rgba($p-gray, 0.5);
+    }
+
+    .nav {
+      &-link {
+        color: rgba($p-gray, 0.8);
+      }
+      &-link.active {
+        color: $orange;
+        background-color: $white;
+      }
+    }
+  }
+}

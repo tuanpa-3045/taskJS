@@ -1,0 +1,43 @@
+.dropdown {
+  position: absolute;
+  top: 700%;
+  display: none;
+
+  .dropdown-menu {
+    @include respond-to(desktop-and-down) {
+      flex-wrap: wrap;
+    }
+    @include flex($align: center);
+    border: 1px solid $orange;
+    border-radius: 0;
+
+    .list__dropdown {
+      .dropdown-item {
+        @include mg($x: 0.5rem, $y: 1rem);
+        font-size: $fs-light;
+        color: rgba($p-gray, 0.8);
+        text-transform: capitalize;
+
+        &:first-child {
+          text-transform: uppercase;
+          margin-top: 1rem;
+          color: $black;
+        }
+
+        &:hover {
+          background-color: transparent;
+          color: $orange;
+        }
+      }
+    }
+
+    &__image {
+      height: 10rem;
+
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+}

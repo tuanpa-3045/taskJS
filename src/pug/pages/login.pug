@@ -1,0 +1,21 @@
+extend ../base/base.pug
+block variables
+  - const title = "Đăng nhập"
+  - const currentUrl = "/login"
+block main
+  section.login
+    .container.login__container
+      +breadcrumb("Trang chủ", "Đăng nhập")
+      .login__title
+        h2.main-heading Đăng nhập
+        button.button Đăng ký
+      .login__form
+        form
+          h3.form__caption khách hàng đăng nhập
+          p.login__sub Nếu bạn có một tài khoản, xin vui lòng đăng nhập.
+          +form({label: "Email *", id:"emailLogin", type:"email"})
+          +form({label: "Password *", id:"passwrdLogin", type:"password"})
+          +form({label: "Quên mật khẩu", id:"checkPassword", type:"checkbox"})
+          .row
+            .col-2.offset-3
+              button.button đăng nhập

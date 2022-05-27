@@ -1,0 +1,20 @@
+mixin orderTable({ data })
+  thead
+    th(scope="col") stt
+    th(scope="col") mã hóa đơn/ ngày mua hàng
+    th(scope="col") kho nhận hàng
+    th(scope="col") số sp
+    th(scope="col") tổng tiền
+    th(scope="col") tình trạng
+    th(scope="col") thao tác
+  tbody
+    each item in data
+      tr.order__row
+        td(scope="row")= item.id
+        td=`${item.codeBill} - ${item.day}`
+          p 01:36 14/03/2015
+        td=item.address
+        td=item.amount
+        td=item.total
+        td=item.status
+        td=item.operations

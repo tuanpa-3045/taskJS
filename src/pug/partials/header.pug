@@ -1,0 +1,14 @@
+mixin header()
+  header
+    .container
+      .header__icon.d-lg-none.d-flex
+        label(for="user")
+          i(class="far fa-user")
+      ul.header-navigate
+        each item in headerList
+          li.header-navigate__item
+            a(href=`${item.link}`).header-navigate__link= item.title
+          span.cross -
+      .header-search
+        input(type="text" placeholder="Tìm kiếm ở đây ...")
+        i.fa-solid.fa-magnifying-glass.icon

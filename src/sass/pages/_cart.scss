@@ -1,0 +1,37 @@
+.cart {
+  &__button {
+    text-align: center;
+    @include flex($justify: flex-end);
+
+    .button {
+      margin-left: 1rem;
+    }
+  }
+  &__row {
+    td {
+      @include font($textTrans: uppercase, $fs: $fs-light);
+      vertical-align: middle;
+      text-align: center;
+
+      img {
+        width: 6rem;
+
+        @include respond-to(desktop-and-down) {
+          width: 2rem;
+        }
+      }
+
+      &:nth-child(3),
+      &:nth-child(5) {
+        color: $yellow;
+      }
+    }
+  }
+}
+
+table {
+  th {
+    @include font($textTrans: uppercase, $fs: $fs-base);
+    text-align: center;
+  }
+}

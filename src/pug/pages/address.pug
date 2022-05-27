@@ -1,0 +1,42 @@
+extend ../base/base.pug
+block variables
+  - const title = "Địa chỉ khách hàng"
+  - const currentUrl = "/address"
+block main
+  section.address
+    .container.address__container
+      +breadcrumb("Trang chủ", "Địa chỉ")
+      h2.main-heading địa chỉ
+      .row.my-5.d-flex-align-items-center
+        h3.address__caption.col-6 địa chỉ của bạn
+        div.col-6
+          a(href="#!") Thêm địa chỉ
+      .address__form.row
+        .address__form-left.col-12.col-sm-12.col-lg-6.mb-3
+          form
+            each item in formData
+              +form(item)
+            .form-rows
+              .form-group.col-sm-12.offset-sm-3
+                button.button.active Chỉnh sửa địa chỉ
+                button.button Xóa
+        .address__form-left.col-12.col-sm-12.col-lg-6.mb-3
+          form
+            each item in formData
+              +form(item)
+            .form-rows
+              .form-group.col-sm-12.offset-sm-3
+                button.button.active Chỉnh sửa địa chỉ
+                button.button Xóa
+      .address__info.col-12.col-sm-12.col-lg-6
+        form
+          each item in formDataEdit
+            +form(item)
+          .address__link.text-end
+            a(href="#!") Chỉnh sửa địa chỉ
+      .address__info.col-12.col-sm-12.col-lg-6
+        form
+          each item in formDataEdit
+            +form(item)
+          .address__link.text-end
+            a(href="#!") Chỉnh sửa địa chỉ

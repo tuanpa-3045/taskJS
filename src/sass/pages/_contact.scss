@@ -1,0 +1,25 @@
+.contact {
+  color: rgba($p-gray, 0.8);
+
+  p {
+    line-height: 1.5;
+  }
+
+  &__item {
+    @include flex($direction: row);
+    margin-right: 1.5rem;
+  }
+
+  &__company {
+    @include pd($x: 2rem);
+  }
+
+  &__title {
+    @include font($textTrans: uppercase, $fs: $fs-sizable, $fw: $fw-bold);
+    @include mg($y: 1rem);
+  }
+
+  &__list {
+    @include flex();
+  }
+}

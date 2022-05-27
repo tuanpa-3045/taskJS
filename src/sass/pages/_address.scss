@@ -1,0 +1,26 @@
+.address {
+  overflow: hidden;
+  .active {
+    background-color: $blue;
+  }
+
+  &__caption {
+    @include font($textTrans: uppercase, $fw: $fw-regular);
+  }
+
+  &__info {
+    @include pd($y: 2rem);
+    margin-top: 1rem;
+    border-top: 1px solid rgba($p-gray, 0.5);
+
+    form {
+      .form-control {
+        border: none;
+      }
+    }
+  }
+  a {
+    color: $blue;
+    text-decoration: underline;
+  }
+}

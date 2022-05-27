@@ -1,0 +1,17 @@
+extend ../base/base.pug
+block variables
+  - const title = "Giỏ hàng"
+  - const currentUrl = "/cartShop"
+block title
+  title= title + " | Drink Website"
+block main
+  section.cart
+    .container.cart__container
+      +breadcrumb("Trang chủ", "Sản phẩm", "Giỏ hàng")
+      h2.main-heading giỏ hàng
+      .cart__table.mt-5
+        +table({ data: cartList})
+      .cart__button.d-md-flex
+        button.button Tiếp tục mua hàng
+        button.button xóa
+        button.button cập nhật

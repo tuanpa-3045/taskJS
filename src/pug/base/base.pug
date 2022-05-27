@@ -1,0 +1,76 @@
+include ../data/home.data.pug
+include ../data/footer.data.pug
+include ../data/detail.data.pug
+include ../data/list-category.data.pug
+include ../data/cart.data.pug
+include ../data/order.data.pug
+include ../data/form.data.pug
+include ../data/blog.data.pug
+
+
+include ../components/navbar.pug
+include ../components/carousel.pug
+include ../components/ratio-image.pug
+include ../components/products.pug
+include ../components/card-blog.pug
+include ../components/breadcrumb.pug
+include ../components/nav-and-taps.pug
+include ../components/radio-input.pug
+include ../components/rating.pug
+include ../components/pagination.pug
+include ../components/table.pug
+include ../components/form.pug
+include ../components/order-table.pug
+
+
+include ../partials/header.pug
+include ../partials/footer.pug
+
+block variables
+html
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="website use pug and scss")
+    meta(name="author" content="Phan Anh Tuan")
+    meta(name="keywords" content="pug, scss, website, css, html, javascript, jquery, bootstrap, responsive")
+
+    block title
+
+    //- link font gg
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap' rel='stylesheet')
+
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap' rel='stylesheet')
+
+
+
+    //- link icon
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous' referrerpolicy='no-referrer')
+
+    //- link bootstrap
+
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+    link(href='./css/style.css' rel='stylesheet')
+  body
+
+    +header()
+
+    block carousel
+
+
+    +navbar()
+
+    block main
+
+    +footer()
+    //- script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' crossorigin='anonymous')
+    //- script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js')
+

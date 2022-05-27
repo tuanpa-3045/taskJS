@@ -1,0 +1,26 @@
+.about {
+  &__content {
+    @include pd($y: 2rem);
+    margin-top: 2rem;
+
+    &-image {
+      img {
+        width: 100%;
+      }
+    }
+
+    &-text {
+      h3 {
+        @include font($fs: $fs-sizable, $textTrans: uppercase);
+        margin-bottom: 1rem;
+        letter-spacing: 2.5;
+      }
+
+      p {
+        @include font($fs: $fs-light, $color: rgba($p-gray, 0.7));
+        width: 80%;
+        line-height: 1.5;
+      }
+    }
+  }
+}

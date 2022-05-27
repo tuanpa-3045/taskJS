@@ -1,0 +1,75 @@
+.main-heading {
+  @include font($textTrans: uppercase, $fs: $fs-large);
+  @include respond-to(desktop-and-down) {
+    @include font($fs: $fs-sizable, $textTrans: uppercase);
+  }
+  position: relative;
+  margin-top: 3rem;
+  width: fit-content;
+
+  &::after {
+    content: "";
+    width: 4rem;
+    height: 0.5rem;
+    background-image: url("/assets/images/v-title.png");
+    position: absolute;
+    top: 3rem;
+    left: 0;
+  }
+}
+
+.main-price {
+  @include font($fs: $fs-large, $color: $orange);
+
+  sup {
+    text-transform: lowercase;
+  }
+}
+
+.detail__image {
+  &::after {
+    @include tag($type: "sale");
+    background-size: 8rem 8rem;
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+.tag-sale {
+  @include flex();
+  position: relative;
+
+  &::after {
+    @include tag($type: "sale");
+  }
+}
+
+.tag-new {
+  @include flex();
+  position: relative;
+
+  &::after {
+    @include tag($type: "new");
+  }
+}
+
+.tag-hot {
+  @include flex();
+  position: relative;
+
+  &::after {
+    @include tag($type: "hot");
+  }
+}
+
+.read-more {
+  @include mg($y: 1rem);
+  @include font($fs: $fs-light, $color: rgba($p-gray, 0.7));
+  &:hover {
+    color: $orange;
+  }
+}
+
+.carousel {
+  margin-top: 3.5rem;
+}

@@ -1,0 +1,104 @@
+@mixin flex($direction: row, $wrap: nowrap, $gap: 0, $align: "", $justify: "") {
+  display: flex;
+  gap: $gap;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+
+  @if $align != "" {
+    align-items: $align;
+  }
+
+  @if $justify != "" {
+    justify-content: $justify;
+  }
+}
+
+@mixin font($fs: $fs-base, $color: "", $fw: "", $textTrans: none) {
+  font-size: $fs;
+  text-transform: $textTrans;
+
+  @if $color != "" {
+    color: $color;
+  }
+  @if $fw != "" {
+    font-weight: $fw;
+  }
+}
+
+@mixin button(
+  $fs: $fs-base,
+  $bgColor,
+  $colorText,
+  $textTrans: none,
+  $radius: 0
+) {
+  background-color: $bgColor;
+  color: $colorText;
+  text-transform: $textTrans;
+  font-size: $fs;
+  border-radius: $radius;
+}
+
+$breakpoints: (
+  smallphone-and-down: "(max-width: 399px)",
+  phone-and-down: "(max-width: 575px)",
+  tablet-and-down: "(max-width: 767px)",
+  desktop-and-down: "(max-width: 991px)",
+  largedesktop-and-down: "(max-width: 1199px)",
+  extralarge-and-down: "(max-width: 1439px)",
+  smallphone-and-up: "(min-width: 400px)",
+  phone-and-up: "(min-width: 576px)",
+  tablet-and-up: "(min-width: 768px)",
+  desktop-and-up: "(min-width: 992px)",
+  largedesktop-and-up: "(min-width: 1200px)",
+  extralarge-and-up: "(min-width: 1440px)",
+);
+
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == "string",
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  }
+}
+
+@mixin mg($x: 0, $y: 0) {
+  margin: $y $x;
+}
+
+@mixin pd($x: 0, $y: 0) {
+  padding: $y $x;
+}
+
+@mixin tag($type: "") {
+  @if $type == "sale" {
+    background: url("/assets/images/tag1.png") no-repeat;
+  }
+
+  @if $type == "new" {
+    background: url("/assets/images/tag2.png") no-repeat;
+  }
+
+  @if $type == "hot" {
+    background: url("/assets/images/tag3.png") no-repeat;
+  }
+
+  @if $type == "" {
+    background: none;
+  }
+
+  content: " ";
+  background-size: 4rem 4rem;
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  left: 0;
+}

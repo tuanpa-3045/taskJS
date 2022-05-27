@@ -1,0 +1,24 @@
+mixin products({ data, isHorizontal })
+  div(class= `tag-${data.tag}`)
+    img(src=data.urlImage , alt="product image")
+    if (!isHorizontal)
+      .product__info
+        button.icon
+          i.fa-solid.fa-heart
+          | Yêu thích
+        button.icon
+          i.fas.fa-signal.mr-1
+          | So sánh
+        button.icon
+          i.fa-solid.fa-down-left-and-up-right-to-center
+
+  .product__content(class=`${isHorizontal ? "col-6 col-sm-6" : "text-center"}`)
+    h3.product__title= data.title
+    p.main-price.my-3= data.discount
+      sup Đ
+      del.product__cost= data.cost
+        sup Đ
+      if isHorizontal
+        p.intro= description
+    button.button add to cart
+    p.product__description= data.description

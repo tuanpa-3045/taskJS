@@ -1,0 +1,5 @@
+mixin breadcrumb(...items)
+  nav(aria-label="breadcrumb" class="nav__breadcrumb")
+    ol(class="breadcrumb")
+      each item in items
+        li(class="breadcrumb-item" aria-current="page")=item

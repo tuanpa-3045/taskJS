@@ -1,0 +1,61 @@
+.wrapper {
+  &__navbar {
+    background-color: $black;
+    width: 100%;
+
+    .navbar-toggler-icon {
+      @include font($fs: $fs-large);
+      color: $orange;
+    }
+
+    .navbar {
+      padding: 0;
+      &-brand {
+        @include respond-to(tablet-and-down) {
+          height: 7rem;
+
+          img {
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    .nav-item {
+      @include mg($x: 1rem);
+      font-size: $fs-light;
+      color: $white;
+      text-transform: uppercase;
+      position: relative;
+
+      & > a {
+        color: $white;
+        text-decoration: none;
+      }
+
+      :hover {
+        color: $orange;
+      }
+    }
+
+    .nav-bar__link {
+      @include flex($justify: space-between);
+      @include respond-to(desktop-and-down) {
+        @include flex($direction: column);
+      }
+      transition: $transition;
+      width: 100%;
+
+      .nav-item {
+        @include pd($x: 5rem, $y: auto);
+        @include respond-to(desktop-and-down) {
+          @include mg($y: 1rem);
+        }
+
+        &:hover .dropdown {
+          display: block;
+        }
+      }
+    }
+  }
+}

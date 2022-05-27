@@ -1,0 +1,147 @@
+.blog-detail {
+  .main-heading {
+    margin-top: 0;
+  }
+
+  &__content {
+    margin-top: 3rem;
+  }
+
+  &__title {
+    @include font($textTrans: uppercase, $fw: $fw-regular, $fs: $fs-sizable);
+    @include mg($y: 2rem);
+  }
+
+  &__news {
+    .news__item {
+      @include mg($y: 1rem);
+    }
+
+    .news__image {
+      width: 6rem;
+      height: 4rem;
+      margin-right: 1rem;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .news__title {
+      @include font($fs: $fs-light, $textTrans: uppercase, $fw: $fw-bold);
+      margin-bottom: 0.5rem;
+    }
+
+    .news__date {
+      @include font(
+        $fs: $fs-light,
+        $fw: $fw-regular,
+        $color: rgba($p-gray, 0.9)
+      );
+
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  &__tag {
+    .tag__list {
+      @include flex($wrap: wrap, $gap: 0.5rem);
+    }
+
+    .tag__item {
+      @include pd($x: 0.5rem, $y: 0.5rem);
+      width: fit-content;
+      border-radius: 1rem;
+      background-color: rgba($p-gray, 0.1);
+      color: $black;
+
+      &:hover {
+        cursor: pointer;
+        color: $white;
+        background-color: $orange;
+      }
+    }
+  }
+
+  &__product {
+    .card-blog {
+      width: 100%;
+
+      &__title {
+        @include font($fs: $fs-large, $textTrans: uppercase, $fw: $fw-regular);
+        letter-spacing: 0.5rem;
+      }
+
+      &__time {
+        @include font($color: $p-gray);
+        @include mg($y: 1rem);
+      }
+
+      &__description {
+        @include font($color: rgba($black, 0.8));
+        font-style: italic;
+        line-height: 1.5;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &__comment {
+    .comment__item {
+      margin-bottom: 2rem;
+    }
+
+    .comment__title {
+      @include pd($x: 1rem, $y: 1rem);
+      @include flex($justify: space-between, $align: center);
+      @include font($fs: $fs-light, $fw: $fw-regular);
+      background: rgba($p-gray, 0.1);
+      border-radius: 0.5rem;
+      font-style: italic;
+
+      p {
+        line-height: 1.5;
+      }
+
+      a {
+        @include font($fs: $fs-light, $fw: $fw-regular, $color: $p-gray);
+        text-decoration: underline;
+      }
+    }
+
+    .comment__desc {
+      @include pd($x: 1rem);
+      @include mg($y: 1rem);
+      @include font($fw: $fw-light, $color: $p-gray);
+      line-height: 1.2;
+    }
+
+    .pagination {
+      .page-link {
+        @include pd($x: 0.7rem, $y: 0.5rem);
+        margin-left: 1rem;
+        border: 1px solid rgba($p-gray, 0.9);
+        border-radius: 0;
+      }
+      .page-item.active .page-link {
+        color: $white;
+        background-color: $p-gray;
+      }
+
+      .page-number {
+        color: $black;
+      }
+      .pagination__previous,
+      .pagination__next {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+mixin table( { data } )
+  .table-responsive
+    table.table.table-bordered
+      thead
+        th(scope="col") ảnh
+        th(scope="col") tên sản phẩm
+        th(scope="col") giá
+        th(scope="col") số lượng
+        th(scope="col") tổng số
+        th(scope="col") xóa
+      tbody
+      each item in data
+        tr.cart__row
+          td(scope="row")
+            img(src=item.img, alt= item.alt)
+          td= item.name
+          td= item.price
+          td= item.amount
+          td= item.total
+          td
+            a(href="#!" style="color: $p-gray")
+              i(class="fas fa-trash-alt")

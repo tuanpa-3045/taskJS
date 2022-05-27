@@ -1,0 +1,81 @@
+
+extend ../base/base.pug
+block variables
+  - const current="/detail-product.html"
+  - const title = "Detail Product"
+  - const description = "Một hợp chất có trong rượu vang được gọi là resveratro có khả năng làm tăng tối đa tuổi thọ. Resveratro còn có khả năng ngăn chặn mật độ ôxy hoá của protein béo."
+
+block title
+  title= title + " | Drink Website"
+
+
+block main
+  .container
+    section
+      +breadcrumb("Trang chủ", "Sản phẩm", "Rượu vang đỏ")
+    section.detail__content.container
+      .detail__slide.row
+        ul.detail__list.col-3.col-sm-2.col-md-3.col-lg-1
+          button.detail__up
+            i(class="fas fa-arrow-up")
+          each item in detailImageList
+            li.detail__item
+              img(src=item.src, alt=item.alt)
+          button.detail__down
+            i(class="fas fa-arrow-down")
+        .detail__img.col-9.col-md-9.col-lg-5
+          img(src="/assets/images/Product/10.jpg" alt="detail images")
+        .detail__product.col-12.col-sm-12.col-lg-6
+          .detail__title
+            h2.main-heading Rượu nho năm 1987
+            p.main-price.mt-5 300.000
+              sup đ
+          .detail__rating
+            +rating({rating: 4})
+            span.mx-3 1 Review&lpar;S&rpar;
+            button Add Your Review
+          .detail__color.mt-4
+            h4.detail__title màu sắc
+            .color__list.d-flex
+              +ratio-input({ color : "orange"})
+              +ratio-input({ color : "black"})
+              +ratio-input({ color : "red"})
+            h4.detail__title kích cỡ
+            .detail__size
+              <select name="size">
+                <option value="big">Loại to</option>
+                <option value="medium">Loại vừa</option>
+                <option value="small">Loại nhỏ</option>
+              </select>
+            h4.detail__title Số lượng
+            .detail__amount
+              button.btn-adjust -
+              input(type="text" value="3" class="input-amount")
+              button.btn-adjust +
+              button.button(type="button") add to card
+            .detail__action
+              button.icon
+                i.fa-solid.fa-heart
+                | Yêu thích
+              button.icon
+                i.fas.fa-signal.mr-1
+                | So sánh
+              button.icon
+                i.fa-solid.fa-envelope
+                | Email
+            h4.detail__title mô tả
+            .detail__description
+              p= description
+            img(src="./assets/images/6.png" style="width:100%" class="mt-3" alt="logo")
+      .tabs.row
+        .detail__tabs.col-12.col-md-12.col-lg-8
+          +navAndTaps({tabs: tabContent, content: tabDesc , id: "tabs_product", isListCategories: false})
+        .img-wrapper.col-12.col-md-12.col-lg-4
+          img(src="/assets/images/home-image7.jpg" alt="detail images")
+          img(src="/assets/images/ruounho.png" class="image-hover" alt="hover-img")
+      .product
+        h2.introduction__title Sản phẩm liên quan
+        .product__item.row
+          each item in newProducts
+            .product__image.col-12.col-sm-6.col-md-6.col-lg-3.mb-3
+              +products({ data: item })

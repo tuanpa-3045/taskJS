@@ -1,0 +1,59 @@
+extend ../base/base.pug
+block variables
+  - const title = "Chi tiết"
+  - const currentUrl = "/blog-detail"
+block main
+  section.blog-detail
+    .container.blog-detail__container
+      +breadcrumb("Trang chủ","Blog")
+      h2.main-heading blog
+      .blog-detail__content.row
+        .blog-detail__news.col-12.col-md-12.col-lg-4.order-2.order-lg-1
+          .news__list
+            h3.blog-detail__title bài viết mới nhất
+            each item in newsBlog
+              .news__item.d-flex
+                .news__image
+                  img(src= item.img, alt= item.alt)
+                .news__content
+                  h6.news__title= item.title
+                  p.news__date
+                    i(class="far fa-calendar-minus pr-2")
+                    = item.date
+          .blog-detail__tag
+            h3.blog-detail__title blog tags
+            ul.tag__list
+              each tag in tags
+                li.tag__item= tag
+          .blog-detail__video
+            h3.blog-detail__title.py-3 lasted video
+            iframe(width='100%' height='200' src='https://www.youtube.com/embed/HZi4eJXWZU0?autoplay=1&mute=1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+        .blog-detail__product.col-12.col-md-12.col-lg-8.order-1.order-lg-2
+          .card-container
+            each item in cardData
+              .card-blog
+                img(src= item.src, alt="photo1")
+              .card-blog__content.mt-4
+                h3.card-blog__title= item.newsTitle
+                p.card-blog__time= item.newsTime
+                p.card-blog__description= item.newsDescription
+                  span= item.newsDescription
+          .blog-detail__suggest.my-3
+            form.blog-detail__form
+              h3.blog-detail__title.mt-5 đóng góp ý kiến
+              +form({label: "Tên", id: "name", type: "text"})
+              +form({label: "Email", id:"email", type: "email"})
+              +form({label: "Ý kiến", id: "idea", type:"textarea"})
+              .form__button.col-sm-10.offset-sm-3
+                button(type="submit" class="btn btn-secondary") Gửi ý kiến
+            ul.blog-detail__comment.mt-3
+              h3.blog-detail__title bình luận (3)
+              each item in comments
+                li.comment__item
+                  .comment__title.d-flex
+                    p Bình luận bởi Giangle |  Cách đây 4 giờ
+                    a(href="#") Trả lời
+                  .comment__desc
+                    p= item.desc
+              .d-flex.justify-content-end
+                +pagination()

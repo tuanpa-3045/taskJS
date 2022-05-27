@@ -1,0 +1,22 @@
+mixin carousel({ data, id, isBanner })
+  .carousel.slide(id=id data-ride='carousel')
+    .carousel-inner
+      each item,index in data
+        if isBanner
+          +ratio({ ratio: 16/6, className: `carousel-item data-interval="100" ${index === 0 ? "active" : ""}` })
+            img.d-block.w-100(src= `${item.urlImage}` alt='photo')
+        else
+          .carousel-item(class = `${item.isActive ? "active" :""}`)
+            .customer__quote
+              img(src="/assets/images/quote-icon.png" alt="customer image")
+            .customer__description.mt-3
+              p.text-center= item.comment
+              a(href="#" class="read-more") Read more
+            .customer__avatar
+              img(src=item.avatar, alt="customer image")
+            p.product__title= item.author
+            span.customer-job= item.job
+    .carousel-indicators
+      li.active(data-target=`#${id}` data-slide-to='0' aria-current='true' aria-label='Slide 1')
+      li(data-target=`#${id}` data-slide-to='1' aria-label='Slide 2')
+      li(data-target=`#${id}` data-slide-to='2' aria-label='Slide 3')

@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "node-sass": "^7.0.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.9",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.51.0"
+  }
+}

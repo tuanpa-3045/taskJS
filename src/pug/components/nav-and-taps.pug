@@ -1,0 +1,29 @@
+mixin navAndTaps({ tabs, content, id, isListCategories })
+  .tabs-and-pagination
+    ul(class="nav nav-pills" id= id role="tablist")
+      each item in tabs
+        li(class="nav-item" role="presentation")
+          a(class=`nav-link ${item.isActive ? "active" : ""}` id=`${item.id}-tab` data-toggle="tab" href=`#${item.id}` role="tab" aria-controls= item.id aria-selected="true")
+            if isListCategories
+              i(class= item.name)
+            else
+              = item.name
+    if isListCategories
+      +pagination()
+  .tab-content(id= id).py-3
+    if !isListCategories
+      each item in content
+        p(class=`tab-pane fade  ${item.isActive ? "show active" : ""}` style='text-indent: 1rem' id=item.id role="tabpanel" aria-labelledby=`${item.id}-tab`)=item.source
+    else
+      each item in content
+        div(class=`tab-pane fade ${item.isActive ? "show active" : ""}` id=item.id role="tabpanel" aria-labelledby=`${item.id}-tab`)
+          if(item.isActive)
+            .tab-content__product-left.row
+              each item in listProduct
+                .product__image.col-12.col-sm-6.col-lg-4.mb-3
+                  +products({data: item})
+          else
+            .tab-content__product-right
+              each item in newProducts
+                .row.product__image.mb-3
+                  +products({data: item, isHorizontal: true})

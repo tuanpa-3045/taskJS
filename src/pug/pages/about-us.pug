@@ -1,0 +1,17 @@
+extend ../base/base.pug
+block variables
+  - const title = "Giới thiệu"
+  - const currentUrl = "/about"
+  - const description = "Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn.Vang Nổ thăng long tạo cảm giác hương phấn, êm dịu, vui tươi, Sản phẩm được đóng chai dung tích 750ml.Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn. Vang Nổ thăng long tạo cảm giác hương phấn, êm dịu, vui tươi, sản phẩm được đóng chai dung tích 750ml.Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn. Vang Nổ thăng long tạo cảm giác hương phấn, êm dịu, vui tươi, sản phẩm được đóng chai dung tích 750ml..."
+
+block main
+  section.about
+    .container.about__container
+      +breadcrumb("Trang chủ", "Giới thiệu")
+      h2.main-heading Giới thiệu
+      .about__content.d-md-flex.row.gx-3
+        .about__content-image.col-md-6.col-12.mb-3
+          img(src="assets/images/home-image1.jpg" alt="about image")
+        .about__content-text.col-md-6.col-12
+          h3 chào mừng đến với wine house
+          p= description

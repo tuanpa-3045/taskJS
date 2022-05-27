@@ -1,0 +1,38 @@
+.not-found {
+  &__nav {
+    @include flex($justify: center, $gap: 3rem);
+  }
+
+  &__img {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__menu {
+    @include flex($justify: center, $gap: 3rem);
+  }
+
+  &__list {
+    @include flex($justify: center, $align: center);
+  }
+
+  &__item {
+    text-decoration: underline;
+  }
+
+  &__form {
+    position: relative;
+  }
+
+  &__button {
+    @include pd($x: 1rem);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+}

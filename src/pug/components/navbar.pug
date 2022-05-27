@@ -1,0 +1,27 @@
+
+-
+  var logo = './assets/images/logo-primary.png'
+-
+  var imageDropdown = './assets/images/home-image7.jpg'
+mixin navbar()
+  .wrapper__navbar(class=`${current !== '/' ? "mt-6" : ""}`)
+    .container
+      nav.navbar.navbar-expand-lg
+        a.navbar-brand(href='/')
+          img(src=logo alt='logo')
+        button(type='button' class="navbar-toggler" data-toggle='collapse' data-target='#navbarId' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon.i.fa-solid.fa-bars
+        #navbarId.collapse.navbar-collapse.h-100
+          ul.navbar-nav.ml-auto.nav-bar__link
+            each item in navbarLink
+              li.nav-item.active
+                a(href=`${item.link}`)= item.title
+                if item.isDropDown === true
+                  .dropdown
+                    .dropdown-menu
+                      - for (var i=0; i<3;i++)
+                        .list__dropdown
+                          each item in dropdownList
+                            a(class="dropdown-item" href="#")= item
+                      .dropdown-menu__image.px-2
+                        img(src= imageDropdown, alt="Image Dropdown")

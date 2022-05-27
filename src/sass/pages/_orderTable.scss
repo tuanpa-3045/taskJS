@@ -1,0 +1,59 @@
+.order {
+  &__row {
+    td {
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    p {
+      @include font($color: $p-gray, $fs: $fs-light);
+    }
+  }
+
+  .order__title {
+    @include font($textTrans: uppercase, $fs: $fs-sizable, $fw: $fw-regular);
+  }
+
+  &__table {
+    .list-order {
+      @include pd($x: 2rem, $y: 2rem);
+      border: 1px solid rgba($p-gray, 0.3);
+      background-color: rgba($orange, 0.1);
+    }
+  }
+  &__status {
+    position: relative;
+    line-height: 1.5;
+    margin-right: 2rem;
+    color: $p-gray;
+
+    &::after {
+      content: "";
+      right: -1rem;
+      bottom: 0;
+      position: absolute;
+      width: 1px;
+      height: 1rem;
+      background-color: $p-gray;
+    }
+    &:last-child::after {
+      width: 0;
+    }
+  }
+  &__contact {
+    @include pd($x: 2rem, $y: 2rem);
+    background-color: rgba($orange, 0.1);
+    border: 1px solid rgba($p-gray, 0.3);
+    height: fit-content;
+
+    a {
+      @include font($color: $black);
+      text-decoration: underline;
+    }
+  }
+
+  &__item {
+    @include flex();
+    @include mg($y: 1rem);
+  }
+}

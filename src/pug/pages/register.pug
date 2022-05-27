@@ -1,0 +1,27 @@
+extend ../base/base.pug
+block variables
+  - const title = "Đăng ký"
+  - const currentUrl = "/register"
+block main
+  section.login
+    .container.login__container
+      +breadcrumb("Trang chủ", "Đăng ký")
+      .login__title
+        h2.main-heading Đăng ký
+        button.button Đăng nhập
+      .login__form
+        form
+          h3.form__caption thông tin cá nhân
+          +form({label: "Tên trước *", id:"emailLogin", type:"email"})
+          +form({label: "Tên sau *", id:"emailLogin", type:"email"})
+          +form({label: "Email *", id:"emailLogin", type:"email"})
+          +form({label: "Password *", id:"passwrdLogin", type:"password"})
+          .row
+            .col-2.offset-2
+            +form({label: "Đăng ký nhận bản tin", id:"checkbox", type:"checkbox"})
+          h3.form__caption thông tin đăng nhập
+          +form({label: "Mật khẩu *", id:"passwrdRegister", type:"password"})
+          +form({label: "Xác nhận mật khẩu *", id:"confirmRegister", type:"password"})
+          .d-flex.justify-content-end
+            button.button.mx-3 Gửi
+            button.button Quay lại

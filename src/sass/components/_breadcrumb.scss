@@ -1,0 +1,16 @@
+.breadcrumb {
+  @include font($fs: $fs-light);
+  @include mg($y: 2rem);
+  background-color: transparent;
+
+  &-item {
+    &:hover {
+      cursor: pointer;
+      color: $orange;
+    }
+
+    &:last-child {
+      color: $orange;
+    }
+  }
+}

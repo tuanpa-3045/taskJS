@@ -1,0 +1,79 @@
+.footer {
+  margin-top: 5rem;
+  overflow: hidden;
+
+  &__logo-brand {
+    width: 100%;
+    border-bottom: 1px solid rgba($p-gray, 0.2);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__wrapper {
+    @include mg($y: 2rem);
+  }
+
+  &-navigate {
+    font-family: $ff-playfair;
+
+    p {
+      @include mg($y: 1rem);
+      @include font($color: $p-gray);
+      line-height: 1.4;
+      &:hover {
+        color: $orange;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__title {
+    @include font($textTrans: uppercase, $fs: $fs-sizable);
+    letter-spacing: 0.3rem;
+  }
+
+  &__item {
+    @include mg($y: 1rem);
+    @include font($textTrans: uppercase, $fs: $fs-light);
+    min-width: 13rem;
+    color: $p-gray;
+    display: block;
+  }
+
+  &__input {
+    @include mg($y: 1rem);
+    @include flex($direction: row);
+
+    input {
+      &::placeholder {
+        @include font($fw: $fw-regular);
+        font-style: italic;
+      }
+    }
+    .button {
+      @include mg($x: 0);
+
+      & > a {
+        color: $white;
+      }
+    }
+  }
+
+  &__icon-social {
+    & > i {
+      @include font($fs: $fs-base, $color: rgba($p-gray, 0.7));
+      @include mg($x: 0.5rem);
+      cursor: pointer;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+  &__copyright {
+    @include pd($y: 1rem);
+    @include font($fs: $fs-light, $color: $p-gray);
+  }
+}

@@ -1,0 +1,29 @@
+.login {
+  overflow: hidden;
+  .main-heading {
+    margin-top: 0;
+  }
+
+  &__title {
+    @include flex($justify: space-between, $align: center);
+    .button {
+      @include pd($x: 2rem, $y: 0.5rem);
+    }
+  }
+
+  .form__caption {
+    @include font($textTrans: uppercase, $fs: $fs-sizable, $fw: $fw-regular);
+    margin-bottom: 1rem;
+  }
+
+  &__sub {
+    @include font($fs: $fs-light, $fw: $fw-regular);
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    @include pd($x: 3rem, $y: 2rem);
+    @include mg($y: 3rem);
+    border: 1px solid rgba($p-gray, 0.3);
+  }
+}

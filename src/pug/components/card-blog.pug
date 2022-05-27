@@ -1,0 +1,11 @@
+mixin cardBlog({ data })
+  each item in data
+    .card-container.mt-5
+      .card-blog
+        img(src= item.src, alt="photo1")
+        i.fas.fa-link
+      .card-blog__content.mt-4
+        h3.card-blog__title= item.newsTitle
+        p.card-blog__time= item.newsTime
+        p.card-blog__description= item.newsDescription
+        a(href="#" class="read-more") Read more
