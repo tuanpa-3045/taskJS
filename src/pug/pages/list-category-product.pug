@@ -7,8 +7,13 @@ block variables
 block title
   title= title + " | Drink Website"
 
-
 block main
+  .toast-container
+    #basicToast.toast(role='alert' aria-live='assertive' data-delay="1000" aria-atomic='true')
+      .toast-header.bg-success.text-light
+        p.my-0 Thông báo
+      .toast-body.bg-success
+        p.my-0 Sản phẩm đã được thêm vào giỏ hàng
   .container
     section
       +breadcrumb("Trang chủ", "Sản phẩm", "Rượu vang đỏ")
@@ -30,6 +35,7 @@ block main
       .col-12.col-sm-12.col-md-12.col-lg-9.order-1.order-lg-2.list-product
         .tab-content
           +navAndTaps({tabs: navProducts, content: navProducts, id: "list-category", isListCategories: true})
-
-
-
+block script
+  script(src='https://unpkg.com/axios/dist/axios.min.js')
+  script(type="module" src="./js/constant.js")
+  script(type="module" src="./js/getProducts.js")

@@ -8,9 +8,10 @@ const FilesPath = {
   scssFiles: "src/sass/**/*.scss",
   htmlFiles: "src/pug/pages/*.pug",
   assetsFile: "assets/**/*",
+  jsFiles: "src/js/*.js",
 };
 
-const { scssFiles, htmlFiles, assetsFile } = FilesPath;
+const { scssFiles, htmlFiles, assetsFile, jsFiles } = FilesPath;
 
 function scssTask() {
   return src(scssFiles)
@@ -31,15 +32,21 @@ function assetsTask() {
   return src(assetsFile).pipe(dest("./dist/assets"));
 }
 
+function jsTask() {
+  return src(jsFiles).pipe(dest("dist/js")).pipe(browserSync.stream());
+}
+
 function serve() {
   browserSync.init({ server: { baseDir: "./dist" } });
   watch(scssFiles, scssTask);
   watch("src/pug/**/*.pug", htmlTask);
   watch(assetsFile, assetsTask);
+  watch(jsFiles, jsTask);
 }
 
 exports.scss = scssTask;
 exports.html = htmlTask;
 exports.assets = assetsTask;
-exports.default = series(parallel(htmlTask, scssTask, assetsTask));
-exports.serve = series(serve, parallel(htmlTask, scssTask, assetsTask));
+exports.js = jsTask;
+exports.default = series(parallel(htmlTask, scssTask, assetsTask, jsTask));
+exports.serve = series(serve, parallel(htmlTask, scssTask, assetsTask, jsTask));
