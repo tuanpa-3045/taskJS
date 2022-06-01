@@ -65,9 +65,7 @@ async function loadProducts() {
       });
       $("#js-product").innerHTML = html.join(" ");
       $$(".js-add-cart").forEach((item) =>
-        item.addEventListener("click", () => {
-          addToCart(item.dataset.id);
-        })
+        item.addEventListener("click", () => addToCart(item.dataset.id))
       );
     }
   } catch (e) {

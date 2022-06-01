@@ -67,9 +67,9 @@ async function getToCart() {
         </tr>
       `;
       });
-    } else
+    } else {
       html = `<tr><td colspan="100%" style="text-align: center" >Không có sản phẩm nào trong giỏ hàng. <a href="/list-category-product.html"> Đi đến trang mua hàng </a> </td></tr>`;
-
+    }
     $("#js-cart-table").innerHTML =
       localCart.length > 0 ? html.join(" ") : html;
 
