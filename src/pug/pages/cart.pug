@@ -5,13 +5,38 @@ block variables
 block title
   title= title + " | Drink Website"
 block main
+  #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Xóa sản phẩm
+          button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+          | Xác nhận xóa sản phẩm ra khỏi giỏ hàngA
+        .modal-footer
+          button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+          button.btn.btn-danger(type='button' id="js-modal-delete" data-dismiss='modal') Delete
   section.cart
     .container.cart__container
       +breadcrumb("Trang chủ", "Sản phẩm", "Giỏ hàng")
+      +progressBar('Giỏ hàng')
       h2.main-heading giỏ hàng
       .cart__table.mt-5
-        +table({ data: cartList})
+        .table-responsive
+          table.table.table-bordered
+            thead
+              th(scope='col') Ảnh
+              th(scope='col') Tên sản phẩm
+              th(scope='col') Giá
+              th(scope='col') Số lượng
+              th(scope='col') Tổng số
+              th(scope='col') Xóa
+            tbody(id= "js-cart-table")
       .cart__button.d-md-flex
-        button.button Tiếp tục mua hàng
-        button.button xóa
-        button.button cập nhật
+        button.button.active(id= "js-checkout") Tiếp tục
+        a(href="/list-category-product.html").button Quay lai
+block script
+  script(src='https://unpkg.com/axios/dist/axios.min.js')
+  script(type="module" src="./js/constant.js")
+  script(type="module" src="./js/cart.js")

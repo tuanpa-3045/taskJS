@@ -10,3 +10,7 @@
     transition: $transition;
   }
 }
+
+.button.active {
+  background-color: $blue;
+}

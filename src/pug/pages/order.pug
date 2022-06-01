@@ -6,29 +6,38 @@ block main
   section.order
     .container.order__container
       +breadcrumb("Trang chủ", "Danh sách đơn hàng")
-      h2.main-heading Đơn hàng
+      +progressBar('Xác nhận đơn hàng')
+      h2.main-heading Xác nhận đơn hàng
       .order__content.pt-5.row
         .order__table.col-12.col-md-12.col-xl-9.order-2.order-sm-1
-          .list-order
-            h3.order__title danh sách đơn hàng
-            p.my-3
-              each item in statusOrder
-                a(href="#!").order__status=item
-          .table-responsive
-            table.table.table-bordered
-              +orderTable({data: orderList})
+          .cart__table
+            .table-responsive
+              table.table.table-bordered
+                thead
+                  th(scope='col') Ảnh
+                  th(scope='col') Tên sản phẩm
+                  th(scope='col') Giá
+                  th(scope='col') Số lượng
+                  th(scope='col') Tổng số
+                tbody(id= "js-cart-table")
+                tr
+                  th(class="fw-bold") Tổng số
+                  th
+                  th
+                  th(id="js-total-amount" class="fw-bold")
+                  th(id="js-total-money" class="fw-bold")
+          .row.mt-3
+            .col-12.text-end
+              a(href="/cart.html" class="btn btn-link text-secondary") Chỉnh sửa sản phẩm
+              button(id= "js-finish").button.active.mx-3 Đặt mua
+              a(href="/address.html").button Quay lại
         .order__contact.col-12.col-md-12.col-xl-3.order-1.order-sm-2
           h3.order__title thông tin khách hàng
-          ul.order__list.my-3
-            li.order__item
-              i(class="fas fa-user d-block mr-1")
-              div
-                | GiangLe
-                p Leanhgiang89@gmail.com
-            li.order__item
-              i(class="fas fa-map-marker-alt mr-1")
-              p Tòa nhà Hà Nội group 442 Đội Cấn, Ba Đình Hà Nội
-            li.order__item
-              i(class="fa-solid fa-phone mr-1")
-              p (04) 3786 8904
-          a(href="#!") Chi tiết địa chỉ
+          ul.order__list.my-3(id="js-cart-user")
+          a(href="/address.html" class="btn btn-link") Chỉnh sửa địa chỉ
+
+block script
+  script(type="module" src="./js/constant.js")
+  script(type="module" src="./js/function.js")
+  script(type="module" src="./js/toast.js")
+  script(type="module" src="./js/order.js")

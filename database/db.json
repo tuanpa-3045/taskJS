@@ -5,40 +5,40 @@
       "urlImage" : "./assets/images/Product/1.jpg",
       "tag": "hot",
       "title": "rượu vang đà lạt",
-      "discount": "370.000",
-      "cost": "450.000"
+      "discount": 370000,
+      "cost": 450000
     },
     {
       "id": 2,
       "urlImage" : "./assets/images/Product/2.jpg",
       "tag": "hot",
       "title": "rượu vang đà lạt",
-      "discount": "370.000",
-      "cost": "450.000"
+      "discount": 370000,
+      "cost": 450000
     },
     {
       "id": 3,
       "urlImage" : "./assets/images/Product/3.jpg",
       "tag": "hot",
       "title": "rượu vang đà lạt",
-      "discount": "370.000",
-      "cost": "450.000"
+      "discount": 370000,
+      "cost": 450000
     },
     {
       "id": 4,
       "urlImage" : "./assets/images/Product/4.jpg",
       "tag": "hot",
       "title": "rượu vang đà lạt",
-      "discount": "370.000",
-      "cost": "450.000"
+      "discount": 370000,
+      "cost": 450000
     },
     {
       "id": 5,
       "urlImage" : "./assets/images/Product/5.jpg",
       "tag": "hot",
       "title": "rượu vang đà lạt",
-      "discount": "370.000",
-      "cost": "450.000"
+      "discount": 370000,
+      "cost": 450000
     }
     ,
     {
@@ -46,8 +46,8 @@
       "urlImage" : "./assets/images/Product/6.jpg",
       "tag": "hot",
       "title": "rượu vang đà lạt",
-      "discount": "370.000",
-      "cost": "450.000"
+      "discount": 370000,
+      "cost": 450000
     }
     ,
     {
@@ -55,8 +55,8 @@
       "urlImage" : "./assets/images/Product/7.jpg",
       "tag": "hot",
       "title": "rượu vang đà lạt",
-      "discount": "370.000",
-      "cost": "450.000"
+      "discount": 370000,
+      "cost": 450000
     }
     ,
     {
@@ -64,8 +64,8 @@
       "urlImage" : "./assets/images/Product/8.jpg",
       "tag": "hot",
       "title": "rượu vang đà lạt",
-      "discount": "370.000",
-      "cost": "450.000"
+      "discount": 370000,
+      "cost": 450000
     }
     ,
     {
@@ -73,8 +73,8 @@
       "urlImage" : "./assets/images/Product/9.jpg",
       "tag": "hot",
       "title": "rượu vang đà lạt",
-      "discount": "370.000",
-      "cost": "450.000"
+      "discount": 370000,
+      "cost": 450000
     }
   ]
 }

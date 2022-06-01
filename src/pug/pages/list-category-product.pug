@@ -7,9 +7,10 @@ block variables
 block title
   title= title + " | Drink Website"
 
-
 block main
+
   .container
+    #toast
     section
       +breadcrumb("Trang chủ", "Sản phẩm", "Rượu vang đỏ")
     section.banner
@@ -31,4 +32,6 @@ block main
         .tab-content
           +navAndTaps({tabs: navProducts, content: navProducts, id: "list-category", isListCategories: true})
 block script
+  script(src='https://unpkg.com/axios/dist/axios.min.js')
+  script(type="module" src="./js/constant.js")
   script(type="module" src="./js/getProducts.js")

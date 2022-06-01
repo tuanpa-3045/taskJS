@@ -1,37 +1,78 @@
-// import { GET_PRODUCT } from "./constant";
-const URL_BASE = "http://localhost:8000";
-const GET_PRODUCT = `${URL_BASE}/products`;
-
-async function getProduct() {
-  const response = await fetch(GET_PRODUCT);
-  return response.json();
-}
+import { GET_PRODUCT, $, $$ } from "./constant.js";
+import { setLocal, getLocal } from "./function.js";
+import { showSuccessToast } from "./toast.js";
+import { getQuantity } from "./getQuantity.js";
 
 async function loadProducts() {
   try {
-    const data = await getProduct();
+    const { data } = await axios.get(GET_PRODUCT);
+    const payload = getLocal("cart");
+
+    function addToCart(id) {
+      showSuccessToast({ mes: "Thêm vào giỏ hàng thành công" });
+      const result = data.find((element) => element.id === +id);
+
+      const product = payload.filter(
+        (element) => element.id === +id && (element.amount += 1)
+      );
+
+      if (product.length === 0) {
+        payload.push({
+          ...result,
+          amount: 1,
+        });
+      }
+      setLocal({ key: "cart", value: payload });
+      getQuantity();
+    }
+
     if (data) {
       let html = data.map((item, index) => {
         return `
-                  <div class="tag-sale"><img src="./assets/images/Product/9.jpg" alt="product image" />
+            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+              <div class="product__image">
+                <div class="tag-${item.tag}">
+                  <img src=${item.urlImage} alt="product image" />
+                  <div class="product__info">
+                    <button class="icon"><i class="fa-solid fa-heart"></i>Yêu thích</button>
+                    <button class="icon"><i class="fas fa-signal mr-1"></i>So sánh</button>
+                    <button class="icon"><i class="fa-solid fa-down-left-and-up-right-to-center"></i></button>
                   </div>
-                  <div class="product__content col-6 col-sm-6">
-                    <h3 class="product__title">rượu vang đà lạt</h3>
-                    <p class="main-price my-3">370.000<sup>Đ</sup>
-                      <del class="product__cost">450.000<sup>Đ</sup></del>
-                    <p class="intro">Một hợp chất có trong rượu vang được gọi là resveratro có khả năng làm tăng tối đa
-                      tuổi thọ. Resveratro còn có khả năng ngăn chặn mật độ ôxy hoá của protein béo.</p>
-                    </p>
-                    <button class="button">add to cart</button>
-                    <p class="product__description"></p>
-                  </div>
+                </div>
+                <div class="product__content text-center">
+                  <h3 class="product__title">${item.title}</h3>
+                  <p class="main-price my-3">
+                  ${(item.cost * 0.9).toLocaleString("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                  })}
+                    <del class="product__cost">${item.cost.toLocaleString(
+                      "vi-VN",
+                      {
+                        style: "currency",
+                        currency: "VND",
+                      }
+                    )}</del>
+                  </p>
+                  <button class="button js-add-cart" data-id=${item.id}>
+                    add to cart
+                  </button>
+                  <p class="product__description"></p>
+                </div>
+              </div>
+            </div>
         `;
       });
-      document.getElementById("product").innerHTML = html.join("");
+      $("#js-product").innerHTML = html.join(" ");
+      $$(".js-add-cart").forEach((item) =>
+        item.addEventListener("click", () => {
+          addToCart(item.dataset.id);
+        })
+      );
     }
   } catch (e) {
     console.log(e);
   }
 }
 
-window.addEventListener("DOMContentLoaded", loadProducts);
+window.addEventListener("DOMContentLoaded", loadProducts, getQuantity());

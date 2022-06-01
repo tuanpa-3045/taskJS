@@ -18,9 +18,7 @@ mixin navAndTaps({ tabs, content, id, isListCategories })
       each item in content
         div(class=`tab-pane fade ${item.isActive ? "show active" : ""}` id=item.id role="tabpanel" aria-labelledby=`${item.id}-tab`)
           if(item.isActive)
-            .tab-content__product-left.row
-              .product__image.col-12.col-sm-6.col-lg-4.mb-3
-                div(id= "product")
+            div(id= "js-product" class="row")
           else
             .tab-content__product-right
               each item in newProducts

@@ -1,8 +1,5 @@
 .address {
   overflow: hidden;
-  .active {
-    background-color: $blue;
-  }
 
   &__caption {
     @include font($textTrans: uppercase, $fw: $fw-regular);

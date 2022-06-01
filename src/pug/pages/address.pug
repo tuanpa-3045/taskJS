@@ -6,37 +6,34 @@ block main
   section.address
     .container.address__container
       +breadcrumb("Trang chủ", "Địa chỉ")
+      +progressBar('Địa chỉ giao hàng')
       h2.main-heading địa chỉ
       .row.my-5.d-flex-align-items-center
         h3.address__caption.col-6 địa chỉ của bạn
-        div.col-6
-          a(href="#!") Thêm địa chỉ
       .address__form.row
-        .address__form-left.col-12.col-sm-12.col-lg-6.mb-3
+        .address__form-left.col-12.col-sm-12.mb-3
           form
-            each item in formData
-              +form(item)
+            .row.mb-3
+              label.col-sm-3.col-form-label Họ và tên
+              .col-sm-9
+                input.form-control(type="text" id="name" placeholder="Nguyễn Văn A" required)
+            .row.mb-3
+              label.col-sm-3.col-form-label Email
+              .col-sm-9
+                input.form-control(type="email" id="email" placeholder="abc@gmail.com")
+                p(class="my-2" id="js-email-error")
+            .row.mb-3
+              label.col-sm-3.col-form-label Địa chỉ
+              .col-sm-9
+                input.form-control(type="text" id="address" placeholder="Số nhà, đường, phường, thành phố" required)
+            .row.mb-3
+              label.col-sm-3.col-form-label Số Điện Thoại
+              .col-sm-9
+                input.form-control(type="text" id="phone" placeholder="Ex: 0987.654.321")
+                p(class="my-2" id="js-phone-error")
             .form-rows
-              .form-group.col-sm-12.offset-sm-3
-                button.button.active Chỉnh sửa địa chỉ
-                button.button Xóa
-        .address__form-left.col-12.col-sm-12.col-lg-6.mb-3
-          form
-            each item in formData
-              +form(item)
-            .form-rows
-              .form-group.col-sm-12.offset-sm-3
-                button.button.active Chỉnh sửa địa chỉ
-                button.button Xóa
-      .address__info.col-12.col-sm-12.col-lg-6
-        form
-          each item in formDataEdit
-            +form(item)
-          .address__link.text-end
-            a(href="#!") Chỉnh sửa địa chỉ
-      .address__info.col-12.col-sm-12.col-lg-6
-        form
-          each item in formDataEdit
-            +form(item)
-          .address__link.text-end
-            a(href="#!") Chỉnh sửa địa chỉ
+              .form-group.col-sm-12.text-end
+                button(type="button" id="checkout").button.active Tiếp tục đặt hàng
+
+block script
+  script(type="module" src="./js/address.js")
