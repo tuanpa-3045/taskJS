@@ -3,9 +3,26 @@ import { setLocal, getLocal } from "./function.js";
 import { showSuccessToast } from "./toast.js";
 import { getQuantity } from "./getQuantity.js";
 
+async function getProduct() {
+  try {
+    const { data } = await axios
+      .get(GET_PRODUCT, { params })
+      .then((res) => {
+        return res.data;
+      })
+      .then((data) => {
+        const { products, pagination } = data;
+        renderProduct(products);
+        renderPagination(pagination);
+      });
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 async function loadProducts() {
   try {
-    const { data } = await axios.get(GET_PRODUCT);
+    const { data } = getProduct();
     const payload = getLocal("cart");
 
     function addToCart(id) {
@@ -68,8 +85,8 @@ async function loadProducts() {
         item.addEventListener("click", () => addToCart(item.dataset.id))
       );
     }
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    console.log(error);
   }
 }
 
