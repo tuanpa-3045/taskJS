@@ -1,0 +1,15 @@
+extend ../base/base.pug
+block variables
+  - const title = "Giỏ hàng"
+  - const currentUrl = "/cartShop"
+block title
+  title= title + " | Drink Website"
+block main
+  .container.mt-5
+    +progressBar('Xác nhận đơn hàng')
+    .d-flex.align-items-center.justify-content-center.flex-column
+      h3.my-4
+        i(class="fas fa-check mx-3 text-success")
+        | Bạn đã đặt hàng thành công
+      a(href="./list-category-product.html").button Tiếp tục mua sắm
+block script

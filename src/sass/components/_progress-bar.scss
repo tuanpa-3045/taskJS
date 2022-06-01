@@ -1,0 +1,86 @@
+.progressBar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+}
+
+.progress-step {
+  text-align: center;
+  position: relative;
+
+  &:before,
+  &:after {
+    background-color: $orange;
+    content: "";
+    height: 2px;
+    position: absolute;
+    z-index: $z-negative;
+    top: 20px;
+  }
+
+  &:after {
+    left: 50%;
+    width: 100%;
+  }
+
+  &:last-of-type.active:after {
+    background-color: $orange;
+  }
+
+  @media screen and (min-width: 640px) {
+    &:first-of-type:before {
+      right: 50%;
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    &:first-of-type:before,
+    &:last-of-type:after {
+      background-color: white !important;
+    }
+  }
+
+  &:last-of-type:after {
+    left: 50%;
+    width: 50%;
+  }
+
+  .step-count {
+    @include flex($align: center, $justify: center);
+    background-color: $orange;
+    height: 3rem;
+    width: 3rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    color: white;
+    border: 7px solid white;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    em {
+      font-size: 1.2rem;
+    }
+  }
+
+  &.active {
+    .step-description {
+      color: $orange;
+    }
+    &:after {
+      background-color: $p-gray;
+    }
+
+    ~ .progress-step .step-count {
+      background-color: $p-gray;
+    }
+
+    ~ .progress-step:after {
+      background-color: $p-gray;
+    }
+  }
+}
+
+.step-description {
+  @include font($fs: $fs-sizable);
+}

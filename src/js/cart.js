@@ -3,7 +3,7 @@ import { setLocal, getLocal } from "./function.js";
 
 async function getToCart() {
   try {
-    const localCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const localCart = getLocal("cart");
 
     const handleDecrease = (id) => {
       const result = localCart.find((element) => element.id === +id);
@@ -84,6 +84,12 @@ async function getToCart() {
     $$(".deleteProduct").forEach((item) => {
       item.addEventListener("click", () => handleDelete(item.dataset.id));
     });
+
+    if (localCart.length > 0) {
+      $("#js-checkout").onclick = () => {
+        window.location.href = "./address.html";
+      };
+    }
   } catch (e) {
     console.log(e);
   }

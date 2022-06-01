@@ -8,13 +8,8 @@ block title
   title= title + " | Drink Website"
 
 block main
-  .toast-container
-    #basicToast.toast(role='alert' aria-live='assertive' data-delay="1000" aria-atomic='true')
-      .toast-header.bg-success.text-light
-        p.my-0 Thông báo
-      .toast-body.bg-success
-        p.my-0 Sản phẩm đã được thêm vào giỏ hàng
   .container
+    #toast
     section
       +breadcrumb("Trang chủ", "Sản phẩm", "Rượu vang đỏ")
     section.banner

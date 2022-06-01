@@ -1,12 +1,15 @@
 import { GET_PRODUCT, $, $$ } from "./constant.js";
 import { setLocal, getLocal } from "./function.js";
+import { showSuccessToast } from "./toast.js";
+import { getQuantity } from "./getQuantity.js";
 
 async function loadProducts() {
   try {
     const { data } = await axios.get(GET_PRODUCT);
-    const payload = [];
+    const payload = getLocal("cart");
 
     function addToCart(id) {
+      showSuccessToast({ mes: "Thêm vào giỏ hàng thành công" });
       const result = data.find((element) => element.id === +id);
 
       const product = payload.filter(
@@ -19,8 +22,8 @@ async function loadProducts() {
           amount: 1,
         });
       }
-      new bootstrap.Toast(document.querySelector("#basicToast")).show();
       setLocal({ key: "cart", value: payload });
+      getQuantity();
     }
 
     if (data) {
@@ -39,8 +42,17 @@ async function loadProducts() {
                 <div class="product__content text-center">
                   <h3 class="product__title">${item.title}</h3>
                   <p class="main-price my-3">
-                  ${(item.cost * 0.9).toLocaleString()}</sup>Đ</sup>
-                    <del class="product__cost">${item.cost.toLocaleString()}<sup>Đ</sup></del>
+                  ${(item.cost * 0.9).toLocaleString("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                  })}
+                    <del class="product__cost">${item.cost.toLocaleString(
+                      "vi-VN",
+                      {
+                        style: "currency",
+                        currency: "VND",
+                      }
+                    )}</del>
                   </p>
                   <button class="button js-add-cart" data-id=${item.id}>
                     add to cart
@@ -61,4 +73,4 @@ async function loadProducts() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", loadProducts);
+window.addEventListener("DOMContentLoaded", loadProducts, getQuantity());

@@ -13,13 +13,18 @@ block main
           button.close(type='button' data-dismiss='modal' aria-label='Close')
             span(aria-hidden='true') &times;
         .modal-body
+<<<<<<< HEAD
+          | Xác nhận xóa sản phẩm ra khỏi giỏ hàngA
+=======
           | Xác nhận xóa sản phẩm ra khỏi giỏ hàng
+>>>>>>> fcd60b82fb23efe700b9e9f0b80051a20f917a6b
         .modal-footer
           button.btn.btn-secondary(type='button' data-dismiss='modal') Close
           button.btn.btn-danger(type='button' id="js-modal-delete" data-dismiss='modal') Delete
   section.cart
     .container.cart__container
       +breadcrumb("Trang chủ", "Sản phẩm", "Giỏ hàng")
+      +progressBar('Giỏ hàng')
       h2.main-heading giỏ hàng
       .cart__table.mt-5
         .table-responsive
@@ -33,9 +38,8 @@ block main
               th(scope='col') Xóa
             tbody(id= "js-cart-table")
       .cart__button.d-md-flex
-        button.button Tiếp tục mua hàng
-        button.button xóa
-        button.button cập nhật
+        button.button.active(id= "js-checkout") Tiếp tục
+        a(href="/list-category-product.html").button Quay lai
 block script
   script(src='https://unpkg.com/axios/dist/axios.min.js')
   script(type="module" src="./js/constant.js")

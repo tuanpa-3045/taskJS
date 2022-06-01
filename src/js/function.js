@@ -1,5 +1,5 @@
-export const getLocal = (value) => {
-  return localStorage.getItem(value);
+export const getLocal = (value, defaultValue = []) => {
+  return JSON.parse(localStorage.getItem(value)) || defaultValue;
 };
 
 export const setLocal = ({ key, value }) => {

@@ -1,0 +1,7 @@
+mixin progressBar(step= null)
+  .progressBar
+    each item in steps
+      .progress-step(class = step === item.title ? 'active' : null)
+        .step-count
+          em(class = item.icon)
+        .step-description= item.title

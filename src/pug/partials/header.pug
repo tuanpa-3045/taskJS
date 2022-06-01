@@ -7,7 +7,9 @@ mixin header()
       ul.header-navigate
         each item in headerList
           li.header-navigate__item
-            a(href=`${item.link}`).header-navigate__link= item.title
+            a(href=`${item.link}` class=`${item.title} === "Giỏ hàng" ? "position-relative" : ""` )= item.title
+              if (item.title === "Giỏ hàng")
+                span#amount.position-absolute.top-0.start-100.translate-middle.badge.rounded-pill.bg-danger
           span.cross -
       .header-search
         input(type="text" placeholder="Tìm kiếm ở đây ...")
